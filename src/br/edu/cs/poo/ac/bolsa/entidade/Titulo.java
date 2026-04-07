@@ -1,9 +1,9 @@
-package br.edu.cs.poo.ac.bolsa.entidades;
+package br.edu.cs.poo.ac.bolsa.entidade;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-
-public class Titulo {
+import java.io.Serializable;
+public class Titulo implements Serializable {
 	public Titulo(InvestidorPessoa investidorPessoa, InvestidorEmpresa investidorEmpresa, Ativo ativo,
 			BigDecimal valorInvestido, BigDecimal valorAtual, BigDecimal taxaDiaria, LocalDate dataAplicacao,
 			LocalDate dataVencimento, LocalDate dataUltimoRendimento, StatusTitulo status) {

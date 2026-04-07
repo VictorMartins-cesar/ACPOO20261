@@ -1,6 +1,8 @@
-package br.edu.cs.poo.ac.bolsa.entidades;
+package br.edu.cs.poo.ac.bolsa.entidade;
 
-public class Contatos {
+import java.io.Serializable;
+
+public class Contatos implements Serializable {
 	public Contatos(String email, String telefoneFixo, String telefoneCelular, String numeroWhatsApp,
 			String nomeParaContato) {
 		super();

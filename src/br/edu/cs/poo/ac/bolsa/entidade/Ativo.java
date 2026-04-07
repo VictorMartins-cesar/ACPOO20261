@@ -1,6 +1,8 @@
-package br.edu.cs.poo.ac.bolsa.entidades;
+package br.edu.cs.poo.ac.bolsa.entidade;
 
-public class Ativo {
+import java.io.Serializable;
+
+public class Ativo implements Serializable {
 	public Ativo(long codigo, String descricao, double valorMinimoAplicacao, double valorMaximoAplicacao,
 			double taxaMensalMinima, double taxaMensalMaxima, FaixaRenda faixaMinimaPermitida, int prazoEmMeses) {
 		super();
