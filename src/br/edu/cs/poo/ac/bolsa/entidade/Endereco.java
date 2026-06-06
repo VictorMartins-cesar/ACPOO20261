@@ -3,6 +3,7 @@ package br.edu.cs.poo.ac.bolsa.entidade;
 import java.io.Serializable;
 
 public class Endereco implements Serializable {
+    public Endereco() {}	
 	public Endereco(String logradouro, String cep, String numero, String complemento, String pais, String estado,
 			String cidade) {
 		super();

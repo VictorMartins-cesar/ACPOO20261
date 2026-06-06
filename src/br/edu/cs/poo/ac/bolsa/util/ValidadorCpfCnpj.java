@@ -9,11 +9,7 @@ public class ValidadorCpfCnpj {
 
         cpf = cpf.replaceAll("[^0-9]", "");
 
-        if (cpf.length() != 11) {
-            return ResultadoValidacao.FORMATO_INVALIDO;
-        }
-
-        if (cpf.chars().distinct().count() == 1) {
+        if (cpf.length() != 11 || cpf.matches("(\\d)\\1{10}")) {
             return ResultadoValidacao.FORMATO_INVALIDO;
         }
 
@@ -21,10 +17,9 @@ public class ValidadorCpfCnpj {
         for (int i = 0; i < 9; i++) {
             soma += (cpf.charAt(i) - '0') * (10 - i);
         }
-        int resto = soma % 11;
-        int dv1 = (resto < 2) ? 0 : 11 - resto;
-
-        if (dv1 != (cpf.charAt(9) - '0')) {
+        int d1 = 11 - (soma % 11);
+        if (d1 >= 10) d1 = 0;
+        if (d1 != (cpf.charAt(9) - '0')) {
             return ResultadoValidacao.DV_INVALIDO;
         }
 
@@ -32,10 +27,9 @@ public class ValidadorCpfCnpj {
         for (int i = 0; i < 10; i++) {
             soma += (cpf.charAt(i) - '0') * (11 - i);
         }
-        resto = soma % 11;
-        int dv2 = (resto < 2) ? 0 : 11 - resto;
-
-        if (dv2 != (cpf.charAt(10) - '0')) {
+        int d2 = 11 - (soma % 11);
+        if (d2 >= 10) d2 = 0;
+        if (d2 != (cpf.charAt(10) - '0')) {
             return ResultadoValidacao.DV_INVALIDO;
         }
 
@@ -49,11 +43,7 @@ public class ValidadorCpfCnpj {
 
         cnpj = cnpj.replaceAll("[^0-9]", "");
 
-        if (cnpj.length() != 14) {
-            return ResultadoValidacao.FORMATO_INVALIDO;
-        }
-
-        if (cnpj.chars().distinct().count() == 1) {
+        if (cnpj.length() != 14 || cnpj.matches("(\\d)\\1{13}")) {
             return ResultadoValidacao.FORMATO_INVALIDO;
         }
 
@@ -62,10 +52,9 @@ public class ValidadorCpfCnpj {
         for (int i = 0; i < 12; i++) {
             soma += (cnpj.charAt(i) - '0') * pesos1[i];
         }
-        int resto = soma % 11;
-        int dv1 = (resto < 2) ? 0 : 11 - resto;
-
-        if (dv1 != (cnpj.charAt(12) - '0')) {
+        int d1 = 11 - (soma % 11);
+        if (d1 >= 10) d1 = 0;
+        if (d1 != (cnpj.charAt(12) - '0')) {
             return ResultadoValidacao.DV_INVALIDO;
         }
 
@@ -74,10 +63,9 @@ public class ValidadorCpfCnpj {
         for (int i = 0; i < 13; i++) {
             soma += (cnpj.charAt(i) - '0') * pesos2[i];
         }
-        resto = soma % 11;
-        int dv2 = (resto < 2) ? 0 : 11 - resto;
-
-        if (dv2 != (cnpj.charAt(13) - '0')) {
+        int d2 = 11 - (soma % 11);
+        if (d2 >= 10) d2 = 0;
+        if (d2 != (cnpj.charAt(13) - '0')) {
             return ResultadoValidacao.DV_INVALIDO;
         }
 

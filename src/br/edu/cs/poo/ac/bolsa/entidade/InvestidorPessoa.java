@@ -1,18 +1,24 @@
 package br.edu.cs.poo.ac.bolsa.entidade;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public class InvestidorPessoa extends Investidor {
-	private String cpf;
-    private double renda;
-    private FaixaRenda faixaRenda;
+
+    public InvestidorPessoa() {}
+
     public InvestidorPessoa(String nome, Endereco endereco, LocalDate dataNascimento, BigDecimal bonus, Contatos contatos, String cpf, double renda, FaixaRenda faixaRenda) {
         super(nome, endereco, dataNascimento, bonus, contatos);
         this.cpf = cpf;
         this.renda = renda;
         this.faixaRenda = faixaRenda;
     }
+
+    private String cpf;
+    private double renda;
+    private FaixaRenda faixaRenda;
+
     public String getCpf() {
         return cpf;
     }
@@ -44,5 +50,4 @@ public class InvestidorPessoa extends Investidor {
     public void setDataNascimento(LocalDate dataNascimento) {
         setDataCriacao(dataNascimento);
     }
-
 }

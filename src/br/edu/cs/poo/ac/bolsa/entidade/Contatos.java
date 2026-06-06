@@ -3,6 +3,7 @@ package br.edu.cs.poo.ac.bolsa.entidade;
 import java.io.Serializable;
 
 public class Contatos implements Serializable {
+	public Contatos() {};
 	public Contatos(String email, String telefoneFixo, String telefoneCelular, String numeroWhatsApp,
 			String nomeParaContato) {
 		super();

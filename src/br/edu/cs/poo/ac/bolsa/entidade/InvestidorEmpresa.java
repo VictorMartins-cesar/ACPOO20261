@@ -1,16 +1,21 @@
 package br.edu.cs.poo.ac.bolsa.entidade;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public class InvestidorEmpresa extends Investidor {
-	private String cnpj;
-    private double faturamento;
+
+	public InvestidorEmpresa() {}
     public InvestidorEmpresa(String nome, Endereco endereco, LocalDate dataAbertura, BigDecimal bonus, Contatos contatos, String cnpj, double faturamento) {
         super(nome, endereco, dataAbertura, bonus, contatos);
         this.cnpj = cnpj;
         this.faturamento = faturamento;
     }
+
+    private String cnpj;
+    private double faturamento;
+
     public String getCnpj() {
         return cnpj;
     }
@@ -34,5 +39,4 @@ public class InvestidorEmpresa extends Investidor {
     public void setDataAbertura(LocalDate dataAbertura) {
         setDataCriacao(dataAbertura);
     }
-
 }
